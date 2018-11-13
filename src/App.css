@@ -9,3 +9,12 @@
   list-style-type: none;
   padding-right:20px;
 }
+
+#mobile-hamburger{
+  float:right;
+  font-size:20px;
+}
+
+#mobile-hamburger:hover{
+  color:gray;
+}

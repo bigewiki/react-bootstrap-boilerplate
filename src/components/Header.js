@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = (props) => {
 
@@ -24,7 +25,7 @@ const Header = (props) => {
           </ul>
         </Col>
         <Col xs={4} className="hidden-sm hidden-md hidden-lg hidden-xl">
-          menu
+          <FontAwesomeIcon id="mobile-hamburger" icon="bars" />
         </Col>
       </Row>
     </div>
