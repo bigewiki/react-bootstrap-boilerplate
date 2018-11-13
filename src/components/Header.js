@@ -10,23 +10,21 @@ const Header = (props) => {
     {title: "Contact Us", link: "/contact-us"}
   ];
 
-  //render menu items
-  const showMenuItems = () => {
-    return `somesuch`;
-  }
-
   return (
     <div className="header">
       <Row>
-        <Col xs={12} md={8}>
+        <Col xs={8} sm={4} md={4}>
           {props.title}
         </Col>
-        <Col xs={6} md={4}>
+        <Col xs={6} sm={8} md={8} className="hidden-xs">
           <ul>
             {menuItems.map((menuItems) => {
               return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
             })}
           </ul>
+        </Col>
+        <Col xs={4} className="hidden-sm hidden-md hidden-lg hidden-xl">
+          menu
         </Col>
       </Row>
     </div>
