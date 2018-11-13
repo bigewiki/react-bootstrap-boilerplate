@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Hamburger from './Hamburger';
 
 const Header = (props) => {
 
@@ -24,9 +24,7 @@ const Header = (props) => {
             })}
           </ul>
         </Col>
-        <Col xs={4} className="hidden-sm hidden-md hidden-lg hidden-xl">
-          <FontAwesomeIcon id="mobile-hamburger" icon="bars" />
-        </Col>
+        <Hamburger/>
       </Row>
     </div>
   );
