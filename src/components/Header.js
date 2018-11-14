@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Hamburger from './Hamburger';
 import { AppContext } from '../App';
+import { CSSTransition } from 'react-transition-group';
 
 const Header = (props) => {
 
@@ -17,10 +18,10 @@ const Header = (props) => {
     {/* Primary Nav */}
       <div className="header">
         <Row id="nav-row">
-          <Col xs={8} sm={4} md={4}>
-            {props.title}
+          <Col xs={8} sm={6} md={6}>
+            <h2>{props.title}</h2>
           </Col>
-          <Col xs={6} sm={8} md={8} className="hidden-xs">
+          <Col xs={6} sm={6} md={6} className="hidden-xs">
             <ul>
               {menuItems.map((menuItems) => {
                 return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
@@ -32,21 +33,26 @@ const Header = (props) => {
       </div>
     {/* Mobile Menu */}
       <div>
-        <Row id="mobile-menu-row">
-          <AppContext.Consumer>
-            {(context) => (
-              (context.mainMenuOpen===true) ?
-              <Col xs={12} className="hidden-sm hidden-md hidden-lg hidden-xl">
-                <ul>
-                  {menuItems.map((menuItems) => {
-                    return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
-                  })}
-                </ul>
-              </Col>
-              : null
-            )}
-          </AppContext.Consumer>
-        </Row>
+        <AppContext.Consumer>
+          {(context) => (
+            <CSSTransition
+              in={context.mainMenuOpen}
+              timeout={500}
+              classNames="message"
+              unmountOnExit
+            >
+              <Row id="mobile-menu-row" className="hidden-sm hidden-md hidden-lg hidden-xl">
+                <Col xs={12}>
+                  <ul>
+                    {menuItems.map((menuItems) => {
+                      return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
+                    })}
+                  </ul>
+                </Col>
+              </Row>
+            </CSSTransition>
+          )}
+        </AppContext.Consumer>
       </div>
     </div>
   );
