@@ -5,19 +5,13 @@ import { AppContext } from '../App';
 
 const Hamburger = () => {
   return (
-    <div className="green">
-    {/* Context */}
     <AppContext.Consumer>
       {(context) => (
         <Col xs={4} className="hidden-sm hidden-md hidden-lg hidden-xl">
-          <FontAwesomeIcon id="mobile-hamburger" icon="bars" />
-          {context.number}
+          <FontAwesomeIcon id="mobile-hamburger" onClick={context.handleMainMenuClick} icon={(context.mainMenuOpen===false)?"bars":"times"} />
         </Col>
       )}
     </AppContext.Consumer>
-    {/* Markup */}
-
-    </div>
   )
 };
 
