@@ -36,20 +36,20 @@
  padding-right:20px;
 }
 
-.message-enter {
+.menu-animate-enter {
   opacity: 0.01;
   transform: scale(0.9) translateX(50%);
 }
-.message-enter-active {
+.menu-animate-enter-active {
   opacity: 1;
   transform: scale(1) translateX(0%);
   transition: all 300ms ease-out;
 }
-.message-exit {
+.menu-animate-exit {
   opacity: 1;
   transform: scale(1) translateX(0%);
 }
-.message-exit-active {
+.menu-animate-exit-active {
   opacity: 0.01;
   transform: scale(0.9) translateX(50%);
   transition: all 300ms ease-out;

@@ -18,10 +18,10 @@ const Header = (props) => {
     {/* Primary Nav */}
       <div className="header">
         <Row id="nav-row">
-          <Col xs={8} sm={6} md={6}>
+          <Col xs={8} sm={8} md={6}>
             <h2>{props.title}</h2>
           </Col>
-          <Col xs={6} sm={6} md={6} className="hidden-xs">
+          <Col xs={6} sm={6} md={6} className="hidden-xs hidden-sm">
             <ul>
               {menuItems.map((menuItems) => {
                 return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
@@ -38,10 +38,10 @@ const Header = (props) => {
             <CSSTransition
               in={context.mainMenuOpen}
               timeout={500}
-              classNames="message"
+              classNames="menu-animate"
               unmountOnExit
             >
-              <Row id="mobile-menu-row" className="hidden-sm hidden-md hidden-lg hidden-xl">
+              <Row id="mobile-menu-row" className="hidden-md hidden-lg hidden-xl">
                 <Col xs={12}>
                   <ul>
                     {menuItems.map((menuItems) => {
