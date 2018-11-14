@@ -13,7 +13,9 @@ export const AppContext = React.createContext();
 
 class App extends Component {
   state = {
+    // boolean to indicate whether the menu should be open or closed
     mainMenuOpen : false,
+    // function for handling the menu button being clicked
     handleMainMenuClick : () => {
       if(this.state.mainMenuOpen===false){
         this.setState({mainMenuOpen:true})
