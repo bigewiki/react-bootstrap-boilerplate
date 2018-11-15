@@ -12,6 +12,8 @@ const Header = (props) => {
     {title: "About", link: "/about"},
     {title: "Contact Us", link: "/contact-us"}
   ];
+  //creating 2nd array for the desktop nav menu
+  const primaryMenuItems = menuItems.reverse();
 
   return (
     <div>
@@ -23,7 +25,7 @@ const Header = (props) => {
           </Col>
           <Col xs={6} sm={6} md={6} className="hidden-xs hidden-sm">
             <ul>
-              {menuItems.map((menuItems) => {
+              {primaryMenuItems.map((menuItems) => {
                 return <li><a href={menuItems.link}>{menuItems.title}</a></li>;
               })}
             </ul>
