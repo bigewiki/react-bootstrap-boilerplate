@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-//bootstrap
+import Body from './components/Body';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Grid } from 'react-bootstrap';
-//fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 library.add({ faBars, faTimes });
@@ -31,6 +31,14 @@ class App extends Component {
         <div className="App">
           <Grid>
             <Header title="React Bootstrap Template"/>
+              <Switch>
+                <Route
+                  exact path="/"
+                  render={(routeProps) => (
+                    <Body page="hooray"/>
+                  )}
+                />
+              </Switch>
           </Grid>
         </div>
       </AppContext.Provider>
