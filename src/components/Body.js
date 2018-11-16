@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { AppContext } from '../App';
 
 const Body = (props) => {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Grid } from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -21,8 +20,19 @@ class App extends Component {
       } else {
         this.setState({mainMenuOpen:false})
       }
+    },
+    menuItems : [
+      {title: "Home", link: "#/"},
+      {title: "About", link: "#/about"},
+      {title: "Contact Us", link: "#/contact-us"}
+    ],
+    currentURL : "#/",
+    currentTitle : "Home",
+    handleNavigation : (url, title) => {
+      this.setState({currentURL:url,currentTitle:title});
+      console.log(this.state)
     }
-  };
+  }
 
   render() {
     return (
@@ -30,15 +40,8 @@ class App extends Component {
         {this.props.children}
         <div className="App">
           <Grid>
-            <Header title="React Bootstrap Template"/>
-              <Switch>
-                <Route
-                  exact path="/"
-                  render={(routeProps) => (
-                    <Body page="hooray"/>
-                  )}
-                />
-              </Switch>
+            <Header title="React Bootstrap"/>
+              <Body page={this.state.currentTitle}/>
           </Grid>
         </div>
       </AppContext.Provider>
