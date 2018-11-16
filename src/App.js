@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
 import { Grid } from 'react-bootstrap';
+import MenuItems from './appData/MenuItems'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 library.add({ faBars, faTimes });
@@ -10,28 +11,28 @@ library.add({ faBars, faTimes });
 export const AppContext = React.createContext();
 
 class App extends Component {
-  state = {
-    // boolean to indicate whether the menu should be open or closed
-    mainMenuOpen : false,
-    // function for handling the menu button being clicked
-    handleMainMenuClick : () => {
-      if(this.state.mainMenuOpen===false){
-        this.setState({mainMenuOpen:true})
-      } else {
-        this.setState({mainMenuOpen:false})
+
+  constructor(props) {
+    const currentMenuItem = MenuItems.filter(menuItem => menuItem.link === window.location.hash);
+
+    super(props);
+    this.state = {
+      mainMenuOpen : false,
+      handleMainMenuClick : () => {
+        if(this.state.mainMenuOpen===false){
+          this.setState({mainMenuOpen:true})
+        } else {
+          this.setState({mainMenuOpen:false})
+        }
+      },
+      menuItems : MenuItems,
+      currentURL : currentMenuItem[0].link,
+      currentTitle : currentMenuItem[0].title,
+      handleNavigation : (url, title) => {
+        this.setState({currentURL:url,currentTitle:title});
       }
-    },
-    menuItems : [
-      {title: "Home", link: "#/"},
-      {title: "About", link: "#/about"},
-      {title: "Contact Us", link: "#/contact-us"}
-    ],
-    currentURL : "#/",
-    currentTitle : "Home",
-    handleNavigation : (url, title) => {
-      this.setState({currentURL:url,currentTitle:title});
-      console.log(this.state)
     }
+    console.log(this.state);
   }
 
   render() {
