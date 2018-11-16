@@ -32,7 +32,6 @@ class App extends Component {
         this.setState({currentURL:url,currentTitle:title});
       }
     }
-    console.log(this.state);
   }
 
   render() {
