@@ -20,8 +20,6 @@ class App extends Component {
       currentMenuItem.push({title: "Home", link: "#/"});
     }
 
-    console.log(currentMenuItem);
-
     super(props);
     this.state = {
       mainMenuOpen : false,
@@ -49,8 +47,8 @@ class App extends Component {
           <Grid>
             <Header title="React Bootstrap"/>
             <Body page={this.state.currentTitle}/>
-            <Footer/>
           </Grid>
+          <Footer/>
         </div>
       </AppContext.Provider>
     );
