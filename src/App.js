@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Body from './components/Body';
+import Footer from './components/Footer';
 import { Grid } from 'react-bootstrap';
 import MenuItems from './appData/MenuItems'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -14,6 +15,12 @@ class App extends Component {
 
   constructor(props) {
     const currentMenuItem = MenuItems.filter(menuItem => menuItem.link === window.location.hash);
+
+    if(currentMenuItem.length===0){
+      currentMenuItem.push({title: "Home", link: "#/"});
+    }
+
+    console.log(currentMenuItem);
 
     super(props);
     this.state = {
@@ -41,7 +48,8 @@ class App extends Component {
         <div className="App">
           <Grid>
             <Header title="React Bootstrap"/>
-              <Body page={this.state.currentTitle}/>
+            <Body page={this.state.currentTitle}/>
+            <Footer/>
           </Grid>
         </div>
       </AppContext.Provider>
