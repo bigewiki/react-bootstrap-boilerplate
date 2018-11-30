@@ -44,8 +44,8 @@ class App extends Component {
       <AppContext.Provider value={this.state}>
         {this.props.children}
         <div className="App">
+          <Header title="React Bootstrap"/>
           <Grid>
-            <Header title="React Bootstrap"/>
             <Body page={this.state.currentTitle}/>
           </Grid>
           <Footer/>
