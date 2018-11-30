@@ -7,14 +7,11 @@ const Footer = () => {
       <Grid>
         <div className="footer">
           <Row>
-            <Col xs={4}>
-              FOOTER
+            <Col sm={6}>
+              FOOTER LEFT
             </Col>
-            <Col xs={4}>
-              FOOTER
-            </Col>
-            <Col xs={4}>
-              FOOTER
+            <Col sm={6}>
+              FOOTER RIGHT
             </Col>
           </Row>
         </div>

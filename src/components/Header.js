@@ -18,8 +18,8 @@ const Header = (props) => {
             </Col>
             <Col xs={6} sm={6} md={6} className="hidden-xs hidden-sm">
               <ul>
-                {context.menuItems.map((menuItems, i) => {
-                  return <li key={i}><a href={menuItems.link} onClick={context.handleNavigation}>{menuItems.title}</a></li>;
+              {context.menuItems.map((menuItems, i) => {
+                return <li key={i}><a href={menuItems.link} onClick={() => context.handleNavigation(menuItems.link,menuItems.title)}>{menuItems.title}</a></li>;
                 })}
               </ul>
             </Col>

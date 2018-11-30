@@ -6,11 +6,13 @@ const Body = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => (
-        <Row id="nav-row">
-          <Col>
-            {props.page}
-          </Col>
-        </Row>
+        <div className="body">
+          <Row id="nav-row">
+            <Col>
+              {props.page}
+            </Col>
+          </Row>
+        </div>
       )}
     </AppContext.Consumer>
   )
