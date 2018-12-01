@@ -14,12 +14,12 @@ const Header = (props) => {
         <div className="header">
           <Row id="nav-row">
             <Col xs={8} sm={8} md={6}>
-              <h2>{props.title}</h2>
+              <h2 className="site-title">{props.title}</h2>
             </Col>
             <Col xs={6} sm={6} md={6} className="hidden-xs hidden-sm">
               <ul>
               {context.menuItems.map((menuItems, i) => {
-                return <li key={i}><a href={menuItems.link} onClick={() => context.handleNavigation(menuItems.link,menuItems.title)}>{menuItems.title}</a></li>;
+                return <li key={i + 1} id={`desktop-nav-${i + 1}`}><a className="desktop-nav-link" href={menuItems.link} onClick={() => context.handleNavigation(menuItems.link,menuItems.title,i)}>{menuItems.title}</a></li>;
                 })}
               </ul>
             </Col>
