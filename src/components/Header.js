@@ -19,7 +19,20 @@ const Header = (props) => {
             <Col xs={6} sm={6} md={6} className="hidden-xs hidden-sm">
               <ul>
               {context.menuItems.map((menuItems, i) => {
-                return <li key={i + 1} id={`desktop-nav-${i + 1}`}><a className="desktop-nav-link" href={menuItems.link} onClick={() => context.handleNavigation(menuItems.link,menuItems.title,i)}>{menuItems.title}</a></li>;
+                return <li
+                  key={i + 1}
+                  id={`desktop-nav-${i + 1}`}
+                  >
+                    <a
+                      className="desktop-nav-link"
+                      href={menuItems.link}
+                      onClick={() => context.handleNavigation(menuItems.link,menuItems.title,i)}
+                      onMouseEnter={() => context.handleNavMouseEnter(i)}
+                      onMouseLeave={() => context.handleNavMouseLeave(i)}
+                    >
+                      {menuItems.title}
+                    </a>
+                  </li>;
                 })}
               </ul>
             </Col>

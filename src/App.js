@@ -34,6 +34,7 @@ class App extends Component {
       menuItems : MenuItems,
       currentURL : currentMenuItem[0].link,
       currentTitle : currentMenuItem[0].title,
+      activeMenuItem : document.querySelector(`#desktop-nav-1 a`),
       handleNavigation : (url, title, listNumber) => {
         this.setState({currentURL:url,currentTitle:title});
         this.setState({mainMenuOpen:false});
@@ -41,7 +42,10 @@ class App extends Component {
           i.style.color = "white";
         })
         document.querySelector(`#desktop-nav-${listNumber + 1} a`).style.color = "red";
-      }
+        this.setState({activeMenuItem:document.querySelector(`#desktop-nav-${listNumber + 1} a`)})
+      },
+      handleNavMouseEnter : (i) => {if(this.state.activeMenuItem!=document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "green"}},
+      handleNavMouseLeave : (i) => {if(this.state.activeMenuItem!=document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "white"} else {document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "orange"}}
     }
 
   }
