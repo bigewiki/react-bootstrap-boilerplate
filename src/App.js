@@ -44,8 +44,8 @@ class App extends Component {
         document.querySelector(`#desktop-nav-${listNumber + 1} a`).style.color = "red";
         this.setState({activeMenuItem:document.querySelector(`#desktop-nav-${listNumber + 1} a`)})
       },
-      handleNavMouseEnter : (i) => {if(this.state.activeMenuItem!=document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "green"}},
-      handleNavMouseLeave : (i) => {if(this.state.activeMenuItem!=document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "white"} else {document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "orange"}}
+      handleNavMouseEnter : (i) => {if(this.state.activeMenuItem!==document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "green"}},
+      handleNavMouseLeave : (i) => {if(this.state.activeMenuItem!==document.querySelector(`#desktop-nav-${i + 1} a`)){document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "white"} else {document.querySelector(`#desktop-nav-${i + 1} a`).style.color = "orange"}}
     }
 
   }
